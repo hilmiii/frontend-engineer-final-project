@@ -18,18 +18,22 @@
 .header__title {
   color: #06D6A0;
   margin-bottom: 1rem;
+  margin-right: 1rem;
   font-size: 2.44rem;
 }
 
 .header__genre {
   color: #118AB2;
   margin-bottom: 1rem;
+  margin-right: 1rem;
   font-size: 1.3rem;
 }
 
 .header__description {
   color: #64748b;
   margin-bottom: 1rem;
+  margin-right: 1rem;
+  font-size: 0.8rem;
 }
 
 .header__button {

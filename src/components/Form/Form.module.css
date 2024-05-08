@@ -19,6 +19,7 @@
   border: 1px solid #06D6A0;
   border-radius: 5px;
   transition: border-color 0.3s ease;
+  font-size: 0.6rem;
 }
 
 .inputField:focus {
@@ -31,6 +32,7 @@ label {
   margin-bottom: 0.5rem;
   color: #118AB2;
   font-weight: bold;
+  font-size: 0.8rem;
 }
 
 select {
@@ -69,13 +71,14 @@ select:focus {
 
 .form__right {
   margin-bottom: 1rem;
+  margin-right: 1rem;
   width: 100%; 
 }
 
 .form__title {
   color: #06D6A0;
   margin-bottom: 1rem;
-  font-size: 2.44rem;
+  font-size: 2rem;
 }
 
 .form__genre {
@@ -95,6 +98,7 @@ select:focus {
   border-radius: 10px;
   background-color: #06D6A0;
   color: #fff;
+  font-size: 0.8rem;
 }
 
 .form__image {
@@ -102,6 +106,7 @@ select:focus {
   height: auto;
   border-radius: 25px;
   margin-top: 5rem;
+  margin-right: 1rem;
 }
 
 /* ≥768px */
@@ -136,5 +141,21 @@ select:focus {
     height: auto;
     border-radius: 25px;
     margin-top: 0rem;
+  }
+
+  .form__title{
+    font-size: 2.44rem;
+  }
+
+  label{
+    font-size: 1rem;
+  }
+
+  .inputField{
+    font-size: 1rem;
+  }
+
+  .form__button{
+    font-size: 1rem;
   }
 }
