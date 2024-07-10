@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import data from "../../utils/constants/provinces";
 import { ProvincesContext } from '../../context/ProvincesContext';
+import Image from '../../assets/berjalan.png';
 
 const Container = styled.div`
   margin: 1rem;
@@ -172,10 +173,7 @@ function Form() {
     <Container>
       <FormWrapper>
         <FormRight>
-          <FormImage
-            src="../src/assets/berjalan.png"
-            alt="placeholder"
-          />
+          <FormImage src={Image} alt="placeholder" />
         </FormRight>
         <FormLeft>
           <FormTitle>Add Data</FormTitle>

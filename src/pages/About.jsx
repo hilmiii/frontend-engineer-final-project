@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Weather from '../components/Weather/Weather';
+import RainyImage from '../assets/rainy.jpg';
+import CloudyImage from '../assets/cloudy.jpg';
+import ClearImage from '../assets/clear.jpg';
+import FairImage from '../assets/fair.jpg';
 
 const AboutContainer = styled.div`
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -23,13 +27,13 @@ const About = () => {
   const getBackgroundImage = (weather) => {
     switch(weather) {
       case 'rain':
-        return 'url(../src/assets/rainy.jpg)';
+        return `url(${RainyImage})`;
       case 'clouds':
-        return 'url(../src/assets/cloudy.jpg)';
+        return `url(${CloudyImage})`;
       case 'clear':
-        return 'url(../src/assets/clear.jpg)';
+        return `url(${ClearImage})`;
       default:
-        return 'url(../src/assets/fair.jpg)';
+        return `url(${FairImage})`;
     }
   };
 
