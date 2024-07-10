@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import data from "../../utils/constants/provinces";
 import { ProvincesContext } from '../../context/ProvincesContext';
-import FormImageSrc from '../../assets/berjalan.png'; // Renamed the import for clarity
+import FormImageSrc from '../../assets/berjalan.jpg'; 
 
 const Container = styled.div`
   margin: 1rem;
