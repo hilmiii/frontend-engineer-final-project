@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const IndonesiaContainer = styled.div`
+const GlobalContainer = styled.div`
   margin-bottom: 1rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `;
@@ -25,24 +25,24 @@ const Detail = styled.p`
   font-size: 1rem;
 `;
 
-function Indonesia({ indonesia }) {
-    const { status = '', total = 0, detail = '' } = indonesia; 
+function Global({ global }) {
+    const { status = '', total = 0, detail = '' } = global; // Add default values
 
     return (
-        <IndonesiaContainer>
+        <GlobalContainer>
             <Title>{status}</Title>
             <Total status={status}>{total.toLocaleString()}</Total>
             <Detail>{detail}</Detail>
-        </IndonesiaContainer>
+        </GlobalContainer>
     );
 }
 
-Indonesia.propTypes = {
-    indonesia: PropTypes.shape({
+Global.propTypes = {
+    global: PropTypes.shape({
         status: PropTypes.string.isRequired,
         total: PropTypes.number.isRequired,
         detail: PropTypes.string.isRequired,
     }).isRequired,
 };
 
-export default Indonesia;
+export default Global;

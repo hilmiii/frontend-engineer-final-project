@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Indonesia from "../Indonesia/Indonesia";
+import Global from "../Global/Global";
 
 const Container = styled.div`
   background-color: #fafafa;
@@ -19,7 +19,7 @@ const Description = styled.p`
   color: #4361ee;
 `;
 
-const IndonesiaContainer = styled.div`
+const GlobalContainer = styled.div`
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@ const IndonesiaContainer = styled.div`
   }
 `;
 
-const IndonesiaItem = styled.div`
+const GlobalItem = styled.div`
   margin: 0.5rem; 
   padding: 1rem;
   background-color: #fff;
@@ -56,27 +56,27 @@ const IndonesiaItem = styled.div`
   }
 `;
 
-function Indonesias() {
-    const [indonesias, setIndonesias] = useState([]);
+function Globals() {
+    const [globals, setGlobals] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://covid-fe-2023.vercel.app/api/indonesia.json');
+                const response = await fetch('https://covid-fe-2023.vercel.app/api/global.json');
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
                 }
                 const data = await response.json();
-                console.log('Fetched data:', data); 
-                const IndonesiaData = data.indonesia.map(item => ({
+                console.log('Fetched data:', data); // Add this line to check fetched data
+                const GlobalData = data.global.map(item => ({
                     status: item.status === 'confirmed' ? 'Positif' : item.status === 'recovered' ? 'Sembuh' : 'Meninggal',
                     total: item.total,
                     detail: item.status === 'confirmed' ? 'Jumlah positif dari COVID-19' : item.status === 'recovered' ? 'Jumlah sembuh dari COVID-19' : 'Jumlah meninggal dari COVID-19'
                 }));
 
-                setIndonesias(IndonesiaData);
+                setGlobals(GlobalData);
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -96,7 +96,7 @@ function Indonesias() {
         return <p>Error: {error}</p>;
     }
 
-    const sortedIndonesias = indonesias.sort((a, b) => {
+    const sortedGlobals = globals.sort((a, b) => {
         const statusOrder = {
             "Positif": 1,
             "Sembuh": 2,
@@ -107,20 +107,20 @@ function Indonesias() {
 
     return (
         <Container>
-            <Title>Indonesia Situation</Title>
-            <Description>Data Covid Berdasarkan Indonesia</Description>
+            <Title>Global Situation</Title>
+            <Description>Data Covid Berdasarkan Global</Description>
             <section>
-                <IndonesiaContainer>
-                    {sortedIndonesias.map((indonesia, index) => (
-                        <IndonesiaItem key={index}>
-                            {indonesia.total !== undefined && <Indonesia indonesia={indonesia} />}
-                        </IndonesiaItem>
+                <GlobalContainer>
+                    {sortedGlobals.map((global, index) => (
+                        <GlobalItem key={index}>
+                            {global.total !== undefined && <Global global={global} />}
+                        </GlobalItem>
                     ))}
-                </IndonesiaContainer>
+                </GlobalContainer>
             </section>     
             <div><br /></div>       
         </Container>
     );
 }
 
-export default Indonesias;
+export default Globals;

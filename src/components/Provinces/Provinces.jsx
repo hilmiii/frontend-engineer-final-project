@@ -1,35 +1,67 @@
-import styles from "./Provinces.module.css";
+import { useContext } from 'react';
+import styled from 'styled-components';
+import { ProvincesContext } from '../../context/ProvincesContext';
 
-const Provinces = ({ data }) => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.tableContainer}>
-                <table className={styles.table}>
-                    <thead>
-                        <tr>
-                            <th className={styles.provinces__kota}>Kota</th>
-                            <th className={styles.provinces__kasus}>Kasus</th>
-                            <th className={styles.provinces__sembuh}>Sembuh</th>
-                            <th className={styles.provinces__meninggal}>Meninggal</th>
-                            <th className={styles.provinces__dirawat}>Dirawat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {/* Map over the updated data to display */}
-                        {data.map((province, index) => (
-                            <tr key={index}>
-                                <td className={styles.provinces__kota}>{province.kota}</td>
-                                <td className={styles.provinces__kasus}>{province.kasus}</td>
-                                <td className={styles.provinces__sembuh}>{province.sembuh}</td>
-                                <td className={styles.provinces__meninggal}>{province.meninggal}</td>
-                                <td className={styles.provinces__dirawat}>{province.dirawat}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    );
+const Container = styled.div`
+  margin: 20px;
+  border: 1px solid #ddd;
+`;
+
+const TableContainer = styled.div`
+  max-height: 400px;
+  overflow-y: scroll;
+`;
+
+const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+const TableHeader = styled.th`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background-color: #f2f2f2;
+  font-weight: bold;
+`;
+
+const TableCell = styled.td`
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+`;
+
+const Provinces = () => {
+  const { provincesData } = useContext(ProvincesContext);
+
+  return (
+    <Container>
+      <TableContainer>
+        <Table>
+          <thead>
+            <tr>
+              <TableHeader>Kota</TableHeader>
+              <TableHeader>Kasus</TableHeader>
+              <TableHeader>Sembuh</TableHeader>
+              <TableHeader>Meninggal</TableHeader>
+              <TableHeader>Dirawat</TableHeader>
+            </tr>
+          </thead>
+          <tbody>
+            {provincesData.map((province, index) => (
+              <tr key={index}>
+                <TableCell>{province.kota}</TableCell>
+                <TableCell>{province.kasus}</TableCell>
+                <TableCell>{province.sembuh}</TableCell>
+                <TableCell>{province.meninggal}</TableCell>
+                <TableCell>{province.dirawat}</TableCell>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </TableContainer>
+    </Container>
+  );
 };
 
 export default Provinces;
