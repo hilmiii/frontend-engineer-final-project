@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import styled from 'styled-components';
 import data from "../../utils/constants/provinces";
 import { ProvincesContext } from '../../context/ProvincesContext';
-import Image from '../../assets/berjalan.png';
+import FormImageSrc from '../../assets/berjalan.png'; // Renamed the import for clarity
 
 const Container = styled.div`
   margin: 1rem;
@@ -128,7 +128,7 @@ const FormButton = styled.button`
   }
 `;
 
-const FormImage = styled.img`
+const StyledFormImage = styled.img` // Renamed styled component
   max-width: 100%;
   height: auto;
   border-radius: 25px;
@@ -173,7 +173,7 @@ function Form() {
     <Container>
       <FormWrapper>
         <FormRight>
-          <FormImage src={Image} alt="placeholder" />
+          <StyledFormImage src={FormImageSrc} alt="placeholder" /> {/* Updated to use renamed variables */}
         </FormRight>
         <FormLeft>
           <FormTitle>Add Data</FormTitle>
